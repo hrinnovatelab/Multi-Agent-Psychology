@@ -2,24 +2,32 @@ agents:
   freud:
     enabled: true
     display_name: Freud-inspired psychoanalytic lens
+    prompt_path: psychology/freud.md
   jung:
     enabled: true
     display_name: Jung-inspired analytical psychology lens
+    prompt_path: psychology/jung.md
   skinner:
     enabled: true
     display_name: Skinner-inspired behaviorist lens
+    prompt_path: psychology/skinner.md
   rogers:
     enabled: true
     display_name: Rogers-inspired person-centered lens
+    prompt_path: psychology/rogers.md
   beck:
     enabled: true
     display_name: Beck-inspired cognitive/CBT lens
+    prompt_path: psychology/beck.md
   bowlby:
     enabled: true
     display_name: Bowlby-inspired attachment lens
+    prompt_path: psychology/bowlby.md
   frankl:
     enabled: true
     display_name: Frankl-inspired existential/logotherapy lens
+    prompt_path: psychology/frankl.md
   ellis:
     enabled: true
     display_name: Ellis-inspired REBT lens
+    prompt_path: psychology/ellis.md

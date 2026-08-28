@@ -8,6 +8,8 @@ from app.utils.prompts import PromptRepository
 
 
 class IntakeAgent(BaseAgent):
+    role_name = "intake"
+
     async def run(self, case: CaseRecord, prompts: PromptRepository) -> IntakeResult:
         context = {"case": asdict(case)}
         payload = await self.call("intake", prompts.compose(None, "system/intake.md", context), context)

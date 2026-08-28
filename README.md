@@ -153,9 +153,12 @@ agents:
   jung:
     enabled: false
     display_name: Jung-inspired analytical psychology lens
+    prompt_path: psychology/jung.md
 ```
 
-At least two lenses must remain enabled. To add a lens:
+Each configured lens has its own prompt contract under `prompts/psychology/`. The contract defines its theoretical focus, evidence priorities, required epistemic/safety boundaries, and characteristic blind spot. At startup, the factory validates every enabled lens's prompt before the run begins.
+
+At least two lenses must remain enabled. `prompt_path` must stay under `prompts/psychology/`. To add a lens:
 
 1. Add an entry to `config/agents.yaml`.
 2. Add `prompts/psychology/<key>.md` with its focus, evidence preferences, limitations, and safety constraints.

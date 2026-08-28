@@ -8,6 +8,8 @@ from app.utils.prompts import PromptRepository
 
 
 class EpistemicValidatorAgent(BaseAgent):
+    role_name = "epistemic_validator"
+
     async def validate(self, claim: Claim, prompts: PromptRepository) -> ValidationResult:
         context = {"claim": asdict(claim)}
         payload = await self.call("validation", prompts.compose(None, "system/validator.md", context), context)
