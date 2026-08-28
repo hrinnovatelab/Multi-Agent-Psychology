@@ -63,6 +63,7 @@ class AgentSettings:
     key: str
     display_name: str
     enabled: bool
+    prompt_path: str
 
 
 @dataclass(frozen=True, slots=True)
@@ -108,6 +109,7 @@ def load_config(
                 key=str(key),
                 enabled=bool(value.get("enabled", True)),
                 display_name=str(value.get("display_name", key)),
+                prompt_path=str(value.get("prompt_path", f"psychology/{key}.md")),
             )
             for key, value in raw_agents.items()
         )
@@ -125,6 +127,19 @@ def load_config(
         raise ConfigurationError("At least two psychology agents must be enabled")
     if enabled_count > debate.max_agents:
         raise ConfigurationError("Enabled agent count exceeds debate.max_agents")
+    agent_keys = [agent.key for agent in agents]
+    if len(agent_keys) != len(set(agent_keys)):
+        raise ConfigurationError("Psychology agent keys must be unique")
+    for agent in agents:
+        prompt_path = Path(agent.prompt_path)
+        if prompt_path.is_absolute() or ".." in prompt_path.parts:
+            raise ConfigurationError(
+                f"Agent '{agent.key}' prompt_path must stay inside the prompts directory"
+            )
+        if not agent.prompt_path.startswith("psychology/"):
+            raise ConfigurationError(
+                f"Agent '{agent.key}' prompt_path must be under prompts/psychology"
+            )
     if runtime.retries < 0:
         raise ConfigurationError("runtime.retries cannot be negative")
     if not 0 <= llm.temperature <= 2:

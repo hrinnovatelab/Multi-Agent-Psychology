@@ -21,14 +21,14 @@ class PromptRepository:
         except OSError as exc:
             raise PromptError(f"Cannot read prompt {relative_path}: {exc}") from exc
 
-    def compose(self, lens: str | None, phase: str, context: dict[str, Any]) -> str:
+    def compose(self, lens_prompt_path: str | None, phase: str, context: dict[str, Any]) -> str:
         parts = [
             self.read("shared/safety.md"),
             self.read("shared/epistemic_rules.md"),
             self.read("shared/output_rules.md"),
         ]
-        if lens:
-            parts.append(self.read(f"psychology/{lens}.md"))
+        if lens_prompt_path:
+            parts.append(self.read(lens_prompt_path))
         parts.append(self.read(phase))
         parts.append("\nSTRUCTURED CONTEXT\n" + _json_context(context))
         return "\n\n---\n\n".join(parts)

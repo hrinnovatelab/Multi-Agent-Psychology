@@ -37,7 +37,7 @@ async def run_critique(
     if selected_rounds < 1:
         raise ValueError("rounds must be at least 1")
     prompts = PromptRepository(root / "prompts")
-    agents = build_psychology_agents(config.agents, provider, config.runtime.retries)
+    agents = build_psychology_agents(config.agents, provider, config.runtime.retries, prompts)
     state = DebateState(
         run_id=f"RUN-{uuid.uuid4().hex[:12]}",
         case=case,
