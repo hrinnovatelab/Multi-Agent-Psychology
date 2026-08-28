@@ -1,0 +1,32 @@
+llm:
+  provider: openai
+  model: gpt-5-mini
+  temperature: 0.3
+  max_output_tokens: 4000
+
+debate:
+  rounds: 3
+  max_agents: 8
+  parallel_independent_analysis: true
+  cross_critique_strategy: round_robin
+  allow_agent_revision: true
+
+output:
+  mode: both
+  include_raw_agent_outputs: true
+  include_epistemic_map: true
+  include_debate_transcript: true
+  include_final_summary: true
+
+safety:
+  educational_only: true
+  prohibit_clinical_diagnosis: true
+  prohibit_medication_advice: true
+  flag_crisis_content: true
+
+logging:
+  save_markdown: true
+  save_json_trace: true
+
+runtime:
+  retries: 2

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psychology-multi-agent-lab"
+version = "0.1.0"
+description = "Educational multi-agent psychology case-analysis laboratory"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "openai>=1.40.0",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]

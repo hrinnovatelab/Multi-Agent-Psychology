@@ -1,0 +1,25 @@
+agents:
+  freud:
+    enabled: true
+    display_name: Freud-inspired psychoanalytic lens
+  jung:
+    enabled: true
+    display_name: Jung-inspired analytical psychology lens
+  skinner:
+    enabled: true
+    display_name: Skinner-inspired behaviorist lens
+  rogers:
+    enabled: true
+    display_name: Rogers-inspired person-centered lens
+  beck:
+    enabled: true
+    display_name: Beck-inspired cognitive/CBT lens
+  bowlby:
+    enabled: true
+    display_name: Bowlby-inspired attachment lens
+  frankl:
+    enabled: true
+    display_name: Frankl-inspired existential/logotherapy lens
+  ellis:
+    enabled: true
+    display_name: Ellis-inspired REBT lens
