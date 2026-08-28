@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+analyse/*.md
+consulting/*.md
+logs/*.md
+logs/*.json
+checkpoints/*.json
+!analyse/.gitkeep
+!consulting/.gitkeep
+!logs/.gitkeep
+!checkpoints/.gitkeep
