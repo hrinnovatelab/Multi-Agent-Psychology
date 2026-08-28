@@ -1,4 +1,4 @@
-# Produch & Impplementation Spec v1
+# Product & Impplementation Spec v1
 ## Psychology Multi-Agent Debate Laboratory
 
 You are **Codex acting as the implementation owner, senior software architect, Python engineer, AI-agent workflow designer, and test engineer for this repository**.
